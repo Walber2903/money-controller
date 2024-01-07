@@ -1,0 +1,28 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Site development",
+      "type": "income",
+      "category": "Sell",
+      "price": 12000,
+      "createdAt": "2024-01-08T19:36:44.505Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Food",
+      "price": 59,
+      "createdAt": "2024-01-08T21:36:43.505Z"
+    },
+    {
+      "id": 3,
+      "description": "Rent",
+      "type": "outcome",
+      "category": "Home",
+      "price": 1000,
+      "createdAt": "2024-01-08T08:36:00.500Z"
+    }
+  ]
+}

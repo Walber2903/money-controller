@@ -1,37 +1,37 @@
-import { MagnifyingGlass } from "phosphor-react";
-import { SearchFormContainer } from "./styles";
-import { useForm } from "react-hook-form";
-import * as zod from 'zod';
-import { zodResolver } from "@hookform/resolvers/zod";
+import { MagnifyingGlass } from 'phosphor-react'
+import { SearchFormContainer } from './styles'
+import { useForm } from 'react-hook-form'
+import * as zod from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useContext } from 'react'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 const searchFormSchema = zod.object({
   query: zod.string(),
 })
 
-type SearchFormInputs = zod.infer<typeof searchFormSchema>;
+type SearchFormInputs = zod.infer<typeof searchFormSchema>
 
 export function SearchForm() {
-  const { 
-    register, 
+  const { fetchTransactions } = useContext(TransactionsContext)
+
+  const {
+    register,
     handleSubmit,
-    formState: {
-      isSubmitting,
-    } 
+    formState: { isSubmitting },
   } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
-  });
+  })
 
   async function handleSearchTransactions(data: SearchFormInputs) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    console.log(data);
+    await fetchTransactions(data.query)
   }
 
   return (
     <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
-      <input 
-        type="text" 
-        placeholder="Search for a transaction" 
+      <input
+        type="text"
+        placeholder="Search for a transaction"
         {...register('query')}
       />
 
@@ -39,7 +39,6 @@ export function SearchForm() {
         <MagnifyingGlass size={20} />
         Search
       </button>
-
     </SearchFormContainer>
-  );
+  )
 }

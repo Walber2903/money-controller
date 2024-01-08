@@ -23,6 +23,22 @@
       "category": "Home",
       "price": 1000,
       "createdAt": "2024-01-08T08:36:00.500Z"
+    },
+    {
+      "description": "Switch",
+      "price": 500,
+      "category": "Buy",
+      "type": "outcome",
+      "createdAt": "2024-01-08T23:14:01.392Z",
+      "id": 4
+    },
+    {
+      "description": "50 Horas semana 02/01 a 05/01/24",
+      "price": 5000,
+      "category": "Sell",
+      "type": "income",
+      "createdAt": "2024-01-08T23:31:56.107Z",
+      "id": 5
     }
   ]
 }
